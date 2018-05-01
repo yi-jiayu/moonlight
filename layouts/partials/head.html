@@ -1,12 +1,13 @@
 <head>
   <meta charset=utf-8>
-  <link rel="stylesheet" href="/css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {{ .Hugo.Generator }}
 
   <title>{{ with .Params.Title }}{{ . }} - {{ end }}{{ .Site.Title }}</title>
+  <link rel="stylesheet" href="/css/style.css">
 
-  <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{ else }}{{ .Summary }}{{ end }}">
+  <meta name="description"
+        content="{{if .IsHome}}{{ $.Site.Params.description }}{{ else }}{{ .Summary }}{{ end }}">
 
   <meta name="og:title" content="{{ with .Params.Title }}{{ . }} - {{ end }}{{ .Site.Title }}">
   <meta name="og:type" content="website">
@@ -14,4 +15,8 @@
   <meta name="og:site_name" content="{{ .Site.Title }}">
   <meta name="og:description"
         content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Summary }}{{ end }}">
+
+  {{ range .AlternativeOutputFormats -}}
+  <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+  {{ end -}}
 </head>
