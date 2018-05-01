@@ -1,6 +1,7 @@
 <nav class="navbar-top">
   <section class="container">
     <span class="nav-item brand"><a href="/">{{ .Site.Title }}</a></span>
-    <span class="nav-item right"><a href="{{ .Site.Params.aboutURL }}">About</a></span>
+    <span class="spacer"></span>
+    {{ with .Site.Params.aboutURL }}<span class="nav-item"><a href="{{ . }}">About</a></span>{{ end }}
   </section>
 </nav>

@@ -2,8 +2,9 @@
   <nav class="navbar-bottom">
     <div class="container">
       <span class="nav-item">&copy; {{ .Site.Copyright }}</span>
-      <span class="nav-item right"><a href="https://medium.com/@jiayu.">Medium</a></span>
-      <span class="nav-item"><a href="https://github.com/yi-jiayu/blog">Source</a></span>
+      <span class="spacer"></span>
+      {{ with .Site.Params.medium }}<span class="nav-item"><a href="{{ . }}">Medium</a></span>{{ end }}
+      {{ with .Site.Params.sourceCode }}<span class="nav-item"><a href="{{ . }}">Source</a></span>{{ end }}
     </div>
   </nav>
 </footer>
