@@ -1,0 +1,17 @@
+{
+  "name": "moonlight",
+  "version": "0.1.0",
+  "description": "A simple Hugo theme I made for my own blog",
+  "main": "index.js",
+  "repository": "https://github.com/yi-jiayu/moonlight.git",
+  "author": "Jiayu Yi <yi-jiayu@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "stylelint": "stylelint static/css/*.css"
+  },
+  "devDependencies": {
+    "stylelint": "^9.2.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-order": "^0.8.1"
+  }
+}
