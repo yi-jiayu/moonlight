@@ -3,12 +3,14 @@
 
 <head>
   <meta charset=utf-8>
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/glitch.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {{ .Hugo.Generator }}
 
   <title>Not Found - {{ .Site.Title }}</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/glitch.css">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Roboto:400,700|Source+Code+Pro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Coda" rel="stylesheet">
 
   <meta name="description" content="{{ .Site.Params.description }}">
 
@@ -17,6 +19,10 @@
   <meta name="og:url" content="{{ .Site.BaseURL }}">
   <meta name="og:site_name" content="{{ .Site.Title }}">
   <meta name="og:description" content="{{ .Site.Params.description }}">
+
+  {{ range .AlternativeOutputFormats -}}
+  {{ printf `<link rel="%s" type="%s+%s" href="%s" title="%s" />` .Rel .MediaType.Type .MediaType.Suffix .Permalink $.Site.Title | safeHTML }}
+  {{ end -}}
 </head>
 
 <body>

@@ -5,16 +5,15 @@
 
   <title>{{ with .Params.Title }}{{ . }} - {{ end }}{{ .Site.Title }}</title>
   <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Roboto:400,700|Source+Code+Pro" rel="stylesheet">
 
-  <meta name="description"
-        content="{{if .IsHome}}{{ $.Site.Params.description }}{{ else }}{{ .Summary }}{{ end }}">
+  <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{ else }}{{ .Summary }}{{ end }}">
 
   <meta name="og:title" content="{{ with .Params.Title }}{{ . }} - {{ end }}{{ .Site.Title }}">
   <meta name="og:type" content="website">
   <meta name="og:url" content="{{ .Site.BaseURL }}">
   <meta name="og:site_name" content="{{ .Site.Title }}">
-  <meta name="og:description"
-        content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Summary }}{{ end }}">
+  <meta name="og:description" content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Summary }}{{ end }}">
 
   {{ range .AlternativeOutputFormats -}}
   {{ printf `<link rel="%s" type="%s+%s" href="%s" title="%s" />` .Rel .MediaType.Type .MediaType.Suffix .Permalink $.Site.Title | safeHTML }}
