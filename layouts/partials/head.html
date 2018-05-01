@@ -17,6 +17,6 @@
         content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Summary }}{{ end }}">
 
   {{ range .AlternativeOutputFormats -}}
-  <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+  {{ printf `<link rel="%s" type="%s+%s" href="%s" title="%s" />` .Rel .MediaType.Type .MediaType.Suffix .Permalink $.Site.Title | safeHTML }}
   {{ end -}}
 </head>
