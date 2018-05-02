@@ -197,6 +197,10 @@ h3.subtitle {
   text-align: center;
 }
 
+pre, .highlight + .caption {
+  margin-top: 0;
+}
+
 blockquote.linkpreview-card {
   border: none;
   font-style: normal;
