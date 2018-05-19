@@ -1,6 +1,8 @@
 <nav class="navbar-top">
   <section class="container">
     <span class="nav-item brand"><a href="/">{{ .Site.Title }}</a></span>
+    <span class="nav-item"><a href="/posts">Posts</a></span>
+    <span class="nav-item"><a href="/tags">Tags</a></span>
     <span class="spacer"></span>
     {{ if isset .Site.Params "abouturl" }}
     <span class="nav-item"><a href="{{ .Site.Params.aboutURL }}">About</a></span>
