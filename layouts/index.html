@@ -11,7 +11,7 @@
     <h2 class="subtitle">Blog subtitle</h2>
   </header>
   <section class="article-list">
-    {{ template "_internal/pagination.html" . }} {{ range .Paginator.Pages }}
+    {{ template "_internal/pagination.html" . }} {{ range (where .Paginator.Pages "Section" "posts") }}
     <article>
       <header>
         <h4 class="details">{{ partial "time.html" .Date }} &middot; <span title="{{ .WordCount }} words">{{.ReadingTime}} min read</span>

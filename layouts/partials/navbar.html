@@ -2,6 +2,10 @@
   <section class="container">
     <span class="nav-item brand"><a href="/">{{ .Site.Title }}</a></span>
     <span class="spacer"></span>
-    {{ with .Site.Params.aboutURL }}<span class="nav-item"><a href="{{ . }}">About</a></span>{{ end }}
+    {{ if isset .Site.Params "abouturl" }}
+    <span class="nav-item"><a href="{{ .Site.Params.aboutURL }}">About</a></span>
+    {{ else if .Site.GetPage "page" "pages/about.md" }}
+    <span class="nav-item"><a href="/pages/about">About</a></span>
+    {{ end }}
   </section>
 </nav>
