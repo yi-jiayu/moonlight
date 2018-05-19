@@ -14,10 +14,8 @@
     {{ template "_internal/pagination.html" . }} {{ range .Paginator.Pages }}
     <article>
       <header>
-        <h4 class="details">{{ partial "time.html" .Date }} &middot; <span title="{{ .WordCount }} words">{{.ReadingTime}} min read</span>
-        </h4>
         <h2 class="title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-        {{ with .Params.subtitle }}<h3 class="subtitle">{{.}}</h3>{{end}}
+        <h3 class="subtitle">{{ len .Pages }} {{ if gt (len .Pages) 1 }}posts{{else}}post{{end}}</h3>
       </header>
     </article>
     {{ end }}
