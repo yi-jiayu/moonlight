@@ -1,5 +1,5 @@
 <nav class="navbar-top">
-  <section class="container">
+  <div class="container">
     <span class="nav-item brand"><a href="/">{{ .Site.Title }}</a></span>
     <span class="nav-item"><a href="/posts">Posts</a></span>
     <span class="nav-item"><a href="/tags">Tags</a></span>
@@ -9,5 +9,5 @@
     {{ else if .Site.GetPage "page" "pages/about.md" }}
     <span class="nav-item"><a href="/pages/about">About</a></span>
     {{ end }}
-  </section>
+  </div>
 </nav>

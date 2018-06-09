@@ -111,6 +111,7 @@ table tr:nth-child(2n) {
 }
 
 .container {
+  box-sizing: border-box;
   margin: 0 auto;
   max-width: 700px;
   padding: 1em;
