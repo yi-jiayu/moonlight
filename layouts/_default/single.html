@@ -8,10 +8,10 @@
 <main class="container">
   <article>
     <header class="hgroup article-header">
-      <h4 class="details">{{ partial "time.html" .Date }} &middot; <span title="{{ .WordCount }} words">{{.ReadingTime}} min read</span>
-      </h4>
+      <p class="details">{{ partial "time.html" .Date }} &middot; <span title="{{ .WordCount }} words">{{.ReadingTime}} min read</span>
+      </p>
       <h1 class="title">{{ .Title }}</h1>
-      <h2 class="subtitle">{{ .Params.subtitle }}</h2>
+      {{ with .Params.subtitle }}<p class="subtitle">{{.}}</p>{{end}}
     </header>
     <div class="article-body">
       {{ .Content }}

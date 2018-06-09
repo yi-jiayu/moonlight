@@ -8,18 +8,11 @@
 <main class="container">
   <header class="hgroup">
     <h1 class="title">{{ .Site.Title }}</h1>
-    <h2 class="subtitle">Blog subtitle</h2>
+    <p class="subtitle">Blog subtitle</p>
   </header>
   <section class="article-list">
     {{ template "_internal/pagination.html" . }} {{ range (where .Paginator.Pages "Section" "posts") }}
-    <article>
-      <header>
-        <h4 class="details">{{ partial "time.html" .Date }} &middot; <span title="{{ .WordCount }} words">{{.ReadingTime}} min read</span>
-        </h4>
-        <h2 class="title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-        {{ with .Params.subtitle }}<h3 class="subtitle">{{.}}</h3>{{end}}
-      </header>
-    </article>
+    {{ partial "article-list-item.html" . }}
     {{ end }}
   </section>
 </main>

@@ -35,10 +35,8 @@ section, article, aside, footer, header, nav {
   display: block;
 }
 
-p {
-  line-height: 1.75;
-  margin: 1.5em 0;
-  word-break: break-word;
+header {
+  font-family: var(--sans-serif-font), sans-serif;
 }
 
 li {
@@ -113,7 +111,6 @@ table tr:nth-child(2n) {
 }
 
 .container {
-  box-sizing: border-box;
   margin: 0 auto;
   max-width: 700px;
   padding: 1em;
@@ -156,25 +153,22 @@ nav .container {
   font-size: 2em;
 }
 
-.article-header h2 {
-  font-size: 1.5em;
-}
-
 .title {
   margin: 0.1em 0;
 }
 
 .subtitle {
+  font-size: 1.5em;
   font-weight: normal;
   margin: 0 0;
   opacity: 0.75;
 }
 
-h2.subtitle {
+.article-list h1 {
   font-size: 1.5em;
 }
 
-h3.subtitle {
+.article-list .subtitle {
   font-size: 1.25em;
 }
 
@@ -182,6 +176,12 @@ h3.subtitle {
   font-weight: normal;
   margin: 0 0;
   opacity: 0.75;
+}
+
+.article-body p {
+  line-height: 1.75;
+  margin: 1.5em 0;
+  word-break: break-word;
 }
 
 .article-body h2 + p {

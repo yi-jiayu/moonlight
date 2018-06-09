@@ -14,8 +14,8 @@
     {{ template "_internal/pagination.html" . }} {{ range .Paginator.Pages }}
     <article>
       <header>
-        <h2 class="title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-        <h3 class="subtitle">{{ len .Pages }} {{ if gt (len .Pages) 1 }}posts{{else}}post{{end}}</h3>
+        <h1 class="title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+        <p class="subtitle">{{ len .Pages }} {{ if gt (len .Pages) 1 }}posts{{else}}post{{end}}</p>
       </header>
     </article>
     {{ end }}

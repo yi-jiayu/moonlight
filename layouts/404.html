@@ -21,20 +21,21 @@
   <meta name="og:description" content="{{ .Site.Params.description }}">
 
   {{ range .AlternativeOutputFormats -}}
-  {{ printf `<link rel="%s" type="%s+%s" href="%s" title="%s" />` .Rel .MediaType.Type .MediaType.Suffix .Permalink $.Site.Title | safeHTML }}
+  {{ printf `<link rel="%s" type="%s+%s" href="%s" title="%s" >` .Rel .MediaType.Type .MediaType.Suffix .Permalink $.Site.Title | safeHTML }}
   {{ end -}}
 </head>
 
 <body>
 {{ partial "navbar.html" . }}
-<div class="container">
+<main class="container">
   <header class="hgroup">
     <h1 class="title">Not Found</h1>
-    <h2 class="subtitle glitch" data-text="{{ .Site.Params.notFoundFlavourText }}">
-      {{ .Site.Params.notFoundFlavourText }}</h2>
+    <p class="subtitle glitch" data-text="{{ .Site.Params.notFoundFlavourText }}">
+      {{ .Site.Params.notFoundFlavourText }}</p>
   </header>
-  <p>Return <a href="/">home</a>.</p>
-</div>
+  <p>Go <a href="/">home</a>.</p>
+</main>
+{{ partial "footer.html" . }}
 </body>
 
 </html>
