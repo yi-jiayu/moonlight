@@ -27,7 +27,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 code {
+  background-color: var(--pink-50);
+  border-radius: 0.25em;
   font-family: var(--monospace-font), monospace;
+  padding: 0.1em 0.2em;
   word-break: break-word;
 }
 
@@ -50,6 +53,11 @@ pre {
   max-height: 80vh;
   overflow-x: auto;
   padding: 1em;
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
 }
 
 hr {
@@ -75,6 +83,13 @@ figure img {
   margin-right: auto;
   max-height: 80vh;
   max-width: 100%;
+}
+
+@media (max-width: 700px) {
+  figure {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 table {
