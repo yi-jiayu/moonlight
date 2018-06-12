@@ -1,9 +1,17 @@
 <section class="linkpreview">
+  {{ if .IsNamedParams }}
+  <a href="{{ .Get "url" }}">
+    <blockquote class="linkpreview-card" {{ with .Get "title" }}title="{{ . }}"{{ end }}>
+      {{ with .Get "title" }}<div class="linkpreview-title">{{ . }}</div>{{ end }}
+      {{ with .Get "description" }}<div class="linkpreview-description">{{ . }}</div>{{ end }}
+      {{ with .Get "url" }}<div class="linkpreview-url">{{ . }}</div>{{ end }}
+    {{ else }}
   <a href="{{ .Get 2 }}">
     <blockquote class="linkpreview-card" title="{{ .Get 0 }}">
       <div class="linkpreview-title">{{ .Get 0 }}</div>
       <div class="linkpreview-description">{{ .Get 1 }}</div>
       <div class="linkpreview-url">{{ .Get 2 }}</div>
+    {{ end }}
     </blockquote>
   </a>
 </section>

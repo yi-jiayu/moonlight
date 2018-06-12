@@ -1,3 +1,11 @@
 <footer>
-  <cite>&mdash;{{ .Get 0 }}</cite>
+  {{ if .IsNamedParams }}
+  <cite>&mdash;
+    {{ with .Get "url" }}<a href="{{ . }}">{{ end }}
+    {{- .Get "text" -}}
+    {{ if .Get "url" }}</a>{{ end -}}
+  </cite>
+  {{ else }}
+  <cite>&mdash; {{ .Get 0 }}</cite>
+  {{ end }}
 </footer>
