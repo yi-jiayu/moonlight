@@ -11,3 +11,15 @@ workbox.routing.registerRoute(
       ],
     }),
 );
+
+workbox.routing.registerRoute(
+    new RegExp('/fonts/iosevka-.+\.(?:ttf|woff|woff2)'),
+    workbox.strategies.cacheFirst({
+      cacheName: 'fonts',
+      plugins: [
+        new workbox.expiration.Plugin({
+          maxEntries: 16,
+        }),
+      ],
+    }),
+);
