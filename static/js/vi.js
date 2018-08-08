@@ -17,14 +17,17 @@ get the last element whose top edge is above the viewport by a certain tolerance
 
  |__________|   element <- gets this element
 --------------  top of viewport
- |¯¯¯¯¯¯¯¯¯¯|   another element
+  __________
+ |          |   another element
 
 also works if the element is partially on screen:
 
- |¯¯¯¯¯¯¯¯¯¯|
+  __________
+ |          |
 --------------  top of viewport
  |__________|   element partially in view <- gets this element
- |¯¯¯¯¯¯¯¯¯¯|   another element
+  __________
+ |          |   another element
 
  if there are no elements above the viewport, returns the document body
 */
@@ -49,7 +52,7 @@ function getNextElement(elements) {
   return null;
 }
 
-// takes a query selector and updates the line height base don whether it applies
+// takes a query selector and updates the line height based on whether it applies
 // this is highly coupled to the current style.css
 // the default font size is 16px, but is increased to 18px when the width of the page is greater than 700px
 // since our paragraph line height is 1.75, this makes the line height 28px and 31.5px respectively
