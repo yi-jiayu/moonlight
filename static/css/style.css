@@ -291,3 +291,28 @@ main.container {
   background-size: 16px 16px;
   margin: 0;
 }
+
+.paginator {
+  display: flex;
+}
+
+.pagination {
+  display: inline-block;
+  font-family: var(--sans-serif-font), sans-serif;
+  font-size: 1.5em;
+  font-weight: 700;
+  margin: 0 auto;
+  padding-left: 0;
+}
+
+.pagination li {
+  display: inline-block;
+}
+
+.pagination li a {
+  text-decoration: none;
+}
+
+.pagination .page-item {
+  padding: 0.25em;
+}

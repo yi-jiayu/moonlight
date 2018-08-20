@@ -11,10 +11,11 @@
     <p class="subtitle">Blog subtitle</p>
   </header>
   <section class="article-list">
-    {{ template "_internal/pagination.html" . }} {{ range (where .Paginator.Pages "Section" "posts") }}
+    {{ range (where .Paginator.Pages "Section" "posts") }}
     {{ partial "article-list-item.html" . }}
     {{ end }}
   </section>
+  <nav class="paginator">{{ template "_internal/pagination.html" . }}</nav>
 </main>
 {{ partial "footer.html" . }}
 {{ partial "scripts.html" . }}

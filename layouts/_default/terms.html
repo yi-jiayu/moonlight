@@ -11,7 +11,7 @@
     <h2 class="subtitle">List description</h2>
   </header>
   <section class="article-list">
-    {{ template "_internal/pagination.html" . }} {{ range .Paginator.Pages }}
+    {{ range .Paginator.Pages }}
     <article>
       <header>
         <h1 class="title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
@@ -20,6 +20,7 @@
     </article>
     {{ end }}
   </section>
+  <nav class="paginator">{{ template "_internal/pagination.html" . }}</nav>
 </main>
 {{ partial "footer.html" . }}
 {{ partial "scripts.html" . }}
