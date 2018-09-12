@@ -8,13 +8,21 @@
   <link rel="stylesheet" href="/css/iosevka.css">
   <link crossorigin="anonymous" href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700,700i|Roboto:400,700" rel="stylesheet">
 
-  <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{ else }}{{ .Summary }}{{ end }}">
+  <meta name="description" content="{{ if .IsHome }}
+  {{- $.Site.Params.description -}}
+{{ else }}
+  {{- or .Description .Summary -}}
+{{ end }}">
 
   <meta name="og:title" content="{{ with .Params.Title }}{{ . }} - {{ end }}{{ .Site.Title }}">
   <meta name="og:type" content="website">
   <meta name="og:url" content="{{ .Site.BaseURL }}">
   <meta name="og:site_name" content="{{ .Site.Title }}">
-  <meta name="og:description" content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Summary }}{{ end }}">
+  <meta name="og:description" content="{{ if .IsHome }}
+  {{- $.Site.Params.description -}}
+{{ else }}
+  {{- or .Description .Summary -}}
+{{ end }}">
 
   {{ range .AlternativeOutputFormats -}}
   {{ printf `<link rel="%s" type="%s+%s" href="%s" title="%s" >` .Rel .MediaType.Type .MediaType.Suffix .Permalink $.Site.Title | safeHTML }}
