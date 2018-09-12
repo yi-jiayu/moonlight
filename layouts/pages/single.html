@@ -7,7 +7,8 @@
 {{ partial "navbar.html" . }}
 <main class="container">
   <header>
-    <h1>About</h1>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.subtitle }}<p class="subtitle">{{.}}</p>{{end}}
   </header>
 
   {{ .Content }}
