@@ -7,6 +7,8 @@
       {{ with .Site.Params.sourceCode }}<span class="nav-item"><a href="{{ . }}">Source</a></span>{{ end }}
       {{ if isset .Site.Params "privacyurl" }}
       <span class="nav-item"><a href="{{ .Site.Params.privacyURL }}">Privacy</a></span>
+      {{ else if .Site.GetPage "/privacy" }}
+      <span class="nav-item"><a href="/privacy">Privacy</a></span>
       {{ else if .Site.GetPage "page" "pages/privacy.md" }}
       <span class="nav-item"><a href="/pages/privacy">Privacy</a></span>
       {{ end }}
