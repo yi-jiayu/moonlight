@@ -14,15 +14,16 @@
   {{- or .Description .Summary -}}
 {{ end }}">
 
-  <meta name="og:title" content="{{ with .Params.Title }}{{ . }} - {{ end }}{{ .Site.Title }}">
-  <meta name="og:type" content="website">
-  <meta name="og:url" content="{{ .Site.BaseURL }}">
-  <meta name="og:site_name" content="{{ .Site.Title }}">
-  <meta name="og:description" content="{{ if .IsHome }}
+  <meta property="og:title" content="{{ with .Params.Title }}{{ . }} - {{ end }}{{ .Site.Title }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ .Site.BaseURL }}">
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+  <meta property="og:description" content="{{ if .IsHome }}
   {{- $.Site.Params.description -}}
 {{ else }}
   {{- or .Description .Summary -}}
 {{ end }}">
+  {{ with .Params.Image }}<meta property="og:image" content="{{ (printf "%s%s" $.RelPermalink .) | absURL }}">{{ end }}
 
   {{ range .AlternativeOutputFormats -}}
   {{ printf `<link rel="%s" type="%s+%s" href="%s" title="%s" >` .Rel .MediaType.Type .MediaType.Suffix .Permalink $.Site.Title | safeHTML }}
