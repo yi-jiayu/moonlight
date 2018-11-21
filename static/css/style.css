@@ -77,6 +77,14 @@ blockquote > footer {
   text-align: right;
 }
 
+figure img, figure video {
+  outline: 1px solid var(--primary-muted);
+}
+
+figure.nooutline img, figure.nooutline video {
+  outline: none;
+}
+
 figure img {
   display: block;
   margin-left: auto;
@@ -90,6 +98,10 @@ figure img {
     margin-left: 0;
     margin-right: 0;
   }
+}
+
+video {
+  max-width: 100%;
 }
 
 table {
@@ -284,12 +296,11 @@ main.container {
   transition: background-color 0.5s ease-in-out;
 }
 
-.transparency-grid {
+.transparency-grid img {
   /* modified from https://codepen.io/techniq/pen/XaRbNJ */
   background-image: linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%), linear-gradient(45deg, #ccc 25%, #aaa 25%, #aaa 75%, #ccc 75%);
   background-position: 0 0, 8px 8px;
   background-size: 16px 16px;
-  margin: 0;
 }
 
 .paginator {
