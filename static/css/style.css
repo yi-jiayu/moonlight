@@ -1,14 +1,27 @@
 :root {
-  --pink-50: #fce4ec;
-  --pink-100: #f8bbd0;
-  --pink-200: #f48fb1;
-  --pink-500: #e91e63;
+  --primary: #fafafa;
+  --primary-muted: #c7c7c7;
+  --accent: #f48fb1;
+  --highlight: #fce4ec;
+  --text-color: black;
+  --text-color-muted: #000000c0;
   --serif-font: 'Noto Serif';
   --sans-serif-font: 'Roboto';
   --monospace-font: 'Iosevka';
 }
 
+html[data-theme='dark'] {
+  --primary: #212121;
+  --primary-muted: #484848;
+  --accent: #ad1457;
+  --highlight: #484848;
+  --text-color: white;
+  --text-color-muted: #ffffffc0;
+}
+
 body {
+  background-color: var(--primary);
+  color: var(--text-color);
   display: flex;
   flex-direction: column;
   font-family: var(--serif-font), serif;
@@ -27,7 +40,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 code {
-  background-color: var(--pink-50);
+  background-color: var(--highlight);
   border-radius: 0.25em;
   font-family: var(--monospace-font), monospace;
   padding: 0.1em 0.2em;
@@ -47,7 +60,7 @@ li {
 }
 
 pre {
-  background-color: var(--pink-50);
+  background-color: var(--highlight);
   border-radius: 0.25em;
   line-height: 1.5;
   max-height: 80vh;
@@ -61,16 +74,20 @@ pre code {
 }
 
 hr {
-  background: var(--pink-100);
+  background: var(--primary-muted);
   border: 0;
   height: 1px;
 }
 
 blockquote {
-  border-left: 4px solid var(--pink-500);
+  border-left: 4px solid var(--accent);
   font-style: italic;
   margin-left: 0;
   padding-left: 1em;
+}
+
+video {
+  max-width: 100%;
 }
 
 blockquote > footer {
@@ -81,10 +98,6 @@ figure img, figure video {
   outline: 1px solid var(--primary-muted);
 }
 
-figure.nooutline img, figure.nooutline video {
-  outline: none;
-}
-
 figure img {
   display: block;
   margin-left: auto;
@@ -93,15 +106,22 @@ figure img {
   max-width: 100%;
 }
 
+.transparency-grid img {
+  /* modified from https://codepen.io/techniq/pen/XaRbNJ */
+  background-image: linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%), linear-gradient(45deg, #ccc 25%, #aaa 25%, #aaa 75%, #ccc 75%);
+  background-position: 0 0, 8px 8px;
+  background-size: 16px 16px;
+}
+
+figure.nooutline img, figure.nooutline video {
+  outline: none;
+}
+
 @media (max-width: 700px) {
   figure {
     margin-left: 0;
     margin-right: 0;
   }
-}
-
-video {
-  max-width: 100%;
 }
 
 table {
@@ -113,12 +133,12 @@ table {
 }
 
 table th, table td {
-  border: 1px solid var(--pink-100);
+  border: 1px solid var(--highlight);
   padding: 6px 13px;
 }
 
 table tr:nth-child(2n) {
-  background-color: var(--pink-50);
+  background-color: var(--highlight);
 }
 
 .article-list {
@@ -186,10 +206,10 @@ nav .container {
 }
 
 .subtitle {
+  color: var(--text-color-muted);
   font-size: 1.5em;
   font-weight: normal;
   margin: 0 0;
-  color: rgba(0, 0, 0, 0.75);
 }
 
 .article-list h1 {
@@ -201,9 +221,9 @@ nav .container {
 }
 
 .details {
+  color: var(--text-color-muted);
   font-weight: normal;
   margin: 0 0;
-  color: rgba(0, 0, 0, 0.75);
 }
 
 .article-body p {
@@ -226,24 +246,24 @@ nav .container {
 }
 
 .copyright {
+  color: var(--text-color-muted);
   font-family: var(--sans-serif-font), sans-serif;
   font-size: smaller;
-  color: rgba(0, 0, 0, 0.75);
   text-align: center;
 }
 
 .aside {
+  color: var(--text-color-muted);
   font-style: italic;
   margin: 0 auto;
-  color: rgba(0, 0, 0, 0.75);
   width: 75%;
 }
 
 .caption, figcaption {
+  color: var(--text-color-muted);
   font-family: var(--sans-serif-font), sans-serif;
   font-size: 0.75em;
   margin-top: -1em;
-  color: rgba(0, 0, 0, 0.75);
   text-align: center;
 }
 
@@ -257,7 +277,7 @@ pre, .highlight + .caption {
 }
 
 blockquote.linkpreview-card {
-  border: 1px solid rgba(0, 0, 0, 0.24);
+  border: 1px solid var(--primary-muted);
   border-radius: 0.25em;
   font-family: var(--sans-serif-font), sans-serif;
   font-size: 0.75em;
@@ -271,12 +291,12 @@ blockquote.linkpreview-card {
 }
 
 .linkpreview-description {
+  color: var(--text-color-muted);
   margin: 0.25em 0;
-  color: rgba(0, 0, 0, 0.75);
 }
 
 .linkpreview-url {
-  color: rgba(0, 0, 0, 0.75);
+  color: var(--text-color-muted);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -287,20 +307,11 @@ main.container {
 }
 
 .spoiler {
-  background-color: black;
-  transition: background-color 0.5s ease-in-out;
+  background-color: var(--text-color);
 }
 
 .spoiler:hover {
   background-color: transparent;
-  transition: background-color 0.5s ease-in-out;
-}
-
-.transparency-grid img {
-  /* modified from https://codepen.io/techniq/pen/XaRbNJ */
-  background-image: linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%), linear-gradient(45deg, #ccc 25%, #aaa 25%, #aaa 75%, #ccc 75%);
-  background-position: 0 0, 8px 8px;
-  background-size: 16px 16px;
 }
 
 .paginator {
