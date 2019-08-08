@@ -14,6 +14,8 @@
   {{- or .Description .Summary -}}
 {{ end }}">
 
+  <link rel="canonical" href="{{ .Page.Permalink }}">
+
   <meta property="og:title" content="{{ with .Params.Title }}{{ . }} - {{ end }}{{ .Site.Title }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ .Site.BaseURL }}">
