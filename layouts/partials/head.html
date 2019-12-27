@@ -12,7 +12,7 @@
 
   <meta property="og:title" content="{{ with .Params.Title }}{{ . }} - {{ end }}{{ .Site.Title }}">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ .Site.BaseURL }}">
+  <meta property="og:url" content="{{ .Page.Permalink }}">
   <meta property="og:site_name" content="{{ .Site.Title }}">
   <meta name="description" property="og:description" content="{{ if .IsHome }}
   {{- $.Site.Params.description -}}
