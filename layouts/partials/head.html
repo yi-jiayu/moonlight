@@ -22,7 +22,7 @@
   {{ with .Params.Image }}<meta name="image" property="og:image" content="{{ (printf "%s%s" $.RelPermalink .) | absURL }}">{{ end }}
 
   {{ range .AlternativeOutputFormats -}}
-  {{ printf `<link rel="%s" type="%s+%s" href="%s" title="%s" >` .Rel .MediaType.Type .MediaType.Suffix .Permalink $.Site.Title | safeHTML }}
+    <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
   {{ end -}}
 
   <script>
